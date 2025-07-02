@@ -1,0 +1,374 @@
+/* Base Reset and Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+label,
+td,
+tr,
+p,
+pre,
+span {
+  color: #000;
+}
+
+td {
+  padding: 10px 10px 5px 5px;
+}
+
+select {
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 1rem;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: 95%;
+  background-size: 10px;
+}
+
+/* Background Image */
+#app .background img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Content Layout */
+#app .content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 170px;
+  padding: 0 5%;
+  max-width: 800px;
+}
+
+#app .content h1 {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+#app .content h3 {
+  color: #fff;
+  line-height: 1.5;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  margin-bottom: 40px;
+}
+
+/* Main Card Styling */
+#main1,
+#main2 {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  padding-bottom: 30px;
+  z-index: 10;
+}
+
+#main2 {
+  margin-left: 50px;
+  max-width: 600px;
+  min-height: 300px;
+}
+
+/* Semester Dropdown */
+.semester {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #eeebeb;
+  border-radius: 1rem 1rem 0 0;
+  padding: 0.75rem;
+  gap: 10px;
+}
+
+.semester span {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.semester select {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d85fd;
+  background-color: #fff;
+  border: 1px solid #ececec;
+  border-radius: 100px;
+  padding: 0.5rem 1.5rem;
+}
+
+.semester select option {
+  color: black;
+}
+
+/* Selection Buttons */
+.selection {
+  display: flex;
+}
+
+.selection button {
+  flex: 1;
+  padding: 0.75rem;
+  background: #fff;
+  border: none;
+  font-size: 0.9rem;
+  color: #8e8e8e;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.selection .active {
+  border-bottom: 2.5px solid #055fdd;
+  font-weight: bold;
+  color: #055fdd;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.course-list {
+  margin: 1rem 0;
+}
+
+.course-heading td,
+.name {
+  font-weight: bold;
+}
+
+.name {
+  padding: 0.6rem;
+}
+
+/* Semester Data Input */
+.sem-data {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  padding: 5px 50px;
+  gap: 1rem;
+}
+
+.sem-data p {
+  font-weight: bold;
+  min-width: 100px;
+}
+
+.sem-data input {
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #606060;
+  border: 1px solid #ececec;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.sem-data input[type="number"] {
+  min-width: 30%;
+}
+
+/* Buttons */
+.calculate,
+.reset {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 15px 20px;
+  border-radius: 15px;
+  letter-spacing: 1px;
+  box-shadow: inset 0 0 0 0 transparent;
+  transition: box-shadow 0.3s ease-out;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  margin: 15px;
+}
+
+.calculate {
+  background-color: #2d85fd;
+}
+
+.reset {
+  background-color: #fd2d2d;
+}
+
+.calculate:hover {
+  box-shadow: inset 190px 0 0 0 #055fdd;
+}
+
+.reset:hover {
+  box-shadow: inset 100px 0 0 0 #dc0a0a;
+}
+
+/* Results */
+.displayresult {
+  display: none;
+  justify-content: space-evenly;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.displayresult .blueresult {
+  color: #2d85fd;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+#pop-up-result1,
+#pop-up-result2 {
+  font-size: 2rem;
+}
+
+/* Pop-Up Window */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 275px;
+  transform: translate(-50%, -50%) scale(0);
+  background: #fff;
+  padding: 0 30px 30px;
+  border-radius: 10px;
+  color: #333;
+  text-align: center;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popup.open-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup h2 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 30px 0 10px;
+}
+
+.popup img {
+  margin-top: -50px;
+  border-radius: 50%;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup button {
+  width: 60%;
+  margin-top: 10px;
+  padding: 10px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #5fc838;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #3ebc79;
+  padding: 10px 0;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 780px) {
+  #app .content {
+    padding: 0 20px;
+    margin-bottom: 160px;
+  }
+
+  .popup {
+    width: 220px;
+  }
+
+  .popup h2 {
+    font-size: 1.8rem;
+  }
+
+  label {
+    display: none;
+  }
+
+  td {
+    font-size: 15px;
+  }
+
+  .sem-data {
+    padding: 5px 10px;
+    flex-wrap: wrap;
+  }
+
+  .sem-data input[type="number"] {
+    min-width: 40%;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #app .content {
+    padding: 0 10px;
+  }
+
+  #main2 {
+    margin-left: 0;
+  }
+
+  .small span {
+    text-transform: capitalize;
+  }
+}
+
+
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-bg: #ffffff;
+  --accent-color: #2d85fd;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f5f5f5;
+  --card-bg: #1e1e1e;
+  --accent-color: #90caf9;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#main1,
+#main2,
+.semester,
+.popup {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
